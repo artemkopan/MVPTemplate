@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<template
+    name="MVP Fragment or Dialog"
+    description="Creates a new MVP fragment or dialog"
+    format="1"
+    minApi="15"
+    minBuildApi="15"
+    revision="1">
+
+    <category value="MVP"/>
+    <formfactor value="Mobile"/>
+
+    <parameter
+        name="Class Name for package"
+        constraints="nonempty"
+        id="className"
+        type="string"/>
+
+    <parameter
+        name="Create Dialog Fragment?"
+        default="false"
+        help="If true, then was create dialog fragment"
+        id="isDialog"
+        type="boolean"/>
+
+    <parameter
+        name="Package name"
+        constraints="package"
+        default="com.mycompany.myapp"
+        id="packageName"
+        type="string"/>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>

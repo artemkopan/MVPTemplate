@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<template
+    name="MVP Activity"
+    description="Creates a new MVP activity"
+    format="1"
+    minApi="15"
+    minBuildApi="15"
+    revision="1">
+
+    <category value="MVP"/>
+    <formfactor value="Mobile"/>
+
+    <parameter
+        name="Class Name for package"
+        constraints="nonempty"
+        id="className"
+        type="string"/>
+
+    <parameter
+        name="Activity Name"
+        constraints="class|unique|nonempty"
+        default="MainActivity"
+        help="The name of the activity class to create"
+        id="activityClass"
+        suggest="${layoutToActivity(className)}"
+        type="string"/>
+
+    <parameter
+        name="Layout Name"
+        constraints="layout|unique|nonempty"
+        default="activity_main"
+        help="The name of the layout to create for the activity"
+        id="layoutName"
+        suggest="${activityToLayout(className)}"
+        type="string"/>
+
+    <parameter
+        name="Launcher Activity"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"
+        id="isLauncher"
+        type="boolean"/>
+
+    <parameter
+        name="Portrait Orientation"
+        default="true"
+        help="If true, this activity will have a android:screenOrientation='portrait'"
+        id="isPortrait"
+        type="boolean"/>
+
+    <parameter
+        name="Package name"
+        constraints="package"
+        default="com.mycompany.myapp"
+        id="packageName"
+        type="string"/>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>
