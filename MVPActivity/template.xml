@@ -35,6 +35,13 @@
         type="string"/>
 
     <parameter
+        name="Generate Layout"
+        default="true"
+        help="If true, then in res/layout was created ${layoutName}"
+        id="isCreateLayout"
+        type="boolean"/>
+
+    <parameter
         name="Launcher Activity"
         default="false"
         help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"

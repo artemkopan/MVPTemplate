@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <recipe>
 
-    <#include "fragment_layout_recipe.xml.ftl" />
+    <#if isCreateLayout>
+      <#include "fragment_layout_recipe.xml.ftl" />
+    </#if>
 
     <instantiate from="src/app_package/classes/MvpView.java.ftl"
         to="${escapeXmlAttribute(srcOut)}/view/${className}View.java" />

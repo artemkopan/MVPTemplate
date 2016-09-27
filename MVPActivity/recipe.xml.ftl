@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <recipe>
 
-    <#include "activity_layout_recipe.xml.ftl" />
+    <#if isCreateLayout>
+      <#include "activity_layout_recipe.xml.ftl" />
+    </#if>
 
     <merge from="src/app_package/manifest/AndroidManifest.xml.ftl"
              to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />

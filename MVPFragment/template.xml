@@ -24,6 +24,13 @@
         type="boolean"/>
 
     <parameter
+        name="Generate Layout"
+        default="true"
+        help="If true, then in res/layout was created fragment/dialog_*.xml"
+        id="isCreateLayout"
+        type="boolean"/>
+
+    <parameter
         name="Package name"
         constraints="package"
         default="com.mycompany.myapp"

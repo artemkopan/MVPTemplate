@@ -5,6 +5,7 @@
 !.gitignore
 !MVPActivity
 !MVPFragment
+!fast_git.zip
 # etc...
 
 # ...even if they are in subdirectories
