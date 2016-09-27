@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!MVPActivity
+!MVPFragment
+# etc...
+
+# ...even if they are in subdirectories
+!*/
