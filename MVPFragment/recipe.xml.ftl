@@ -5,11 +5,15 @@
       <#include "fragment_layout_recipe.xml.ftl" />
     </#if>
 
-    <instantiate from="src/app_package/classes/MvpView.java.ftl"
-        to="${escapeXmlAttribute(srcOut)}/view/${className}View.java" />
+    <#if isGeneratePresenter>
+      <instantiate from="src/app_package/classes/MvpView.java.ftl"
+            to="${escapeXmlAttribute(srcOut)}/view/${className}View.java" />
 
-    <instantiate from="src/app_package/classes/Presenter.java.ftl"
-        to="${escapeXmlAttribute(srcOut)}/presenter/${className}Presenter.java" />
+      <instantiate from="src/app_package/classes/Presenter.java.ftl"
+            to="${escapeXmlAttribute(srcOut)}/presenter/${className}Presenter.java" />
+
+      <open file="${srcOut}/presenter/${className}Presenter.java"/>
+    </#if>
 
     <#if isDialog>
         <instantiate from="src/app_package/classes/MvpFragment.java.ftl"
@@ -23,6 +27,5 @@
         <open file="${srcOut}/ui/fragment/${className}Fragment.java"/>
     </#if>
 
-	<open file="${srcOut}/presenter/${className}Presenter.java"/>
 
 </recipe>
