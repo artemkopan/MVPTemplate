@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<template
+    name="Create"
+    description="Creates a new MVP scructure"
+    format="1"
+    minApi="15"
+    minBuildApi="15"
+    revision="1">
+
+    <category value="MVP"/>
+    <formfactor value="Mobile"/>
+
+			
+	<parameter
+        id="uiComponent"
+        name="UI Component"
+        type="enum"
+        default="activity"
+        help="Select UI component for create some project base elements." >
+        <option id="activity">Activity</option>
+        <option id="fragment">Fragment</option>
+        <option id="dialog">Dialog Fragment</option>
+    </parameter>	
+	
+	
+	<parameter
+        id="structure"
+        name="Folder Structure"
+        type="enum"
+        default="all_in_one"
+        help="Select Folder Structure." >
+		<option id="all_in_one">All In One; root -> (presenter; ui; view)</option>
+        <option id="separated">Separated; root -> presenter; root -> ui -> (activity|fragment|dialog); root -> view</option>
+    </parameter>	
+
+	
+    <parameter
+        name="Class Name for package"
+        constraints="nonempty"
+        id="className"
+        type="string"/>
+
+		
+    <parameter
+        name="Generate Layout"
+        default="true"
+        help="If true, then in res/layout was created ${layoutName}"
+        id="isCreateLayout"
+        type="boolean"/>
+
+    <parameter
+        name="Launcher Activity"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"
+        id="isLauncher"
+		visibility="uiComponent == 'activity'"
+        type="boolean"/>
+
+    <parameter
+        name="Portrait Orientation"
+        default="true"
+        help="If true, this activity will have a android:screenOrientation='portrait'"
+        id="isPortrait"
+		visibility="uiComponent == 'activity'"
+        type="boolean"/>
+
+	
+    <parameter
+        name="Generate View,Presenter public?"
+        default="false"
+        help="If true, then was created Presenter and View public class.If false, then was package"
+        id="isGeneratePresenterPublic"
+		visibility="structure == 'all_in_one'"
+        type="boolean"/>
+		
+    <parameter
+        name="Generate View|Presenter"
+        default="true"
+        help="If true, then was created Presenter and View class"
+        id="isGeneratePresenter"
+        type="boolean"/>
+
+    <parameter
+        name="Package name"
+        constraints="package"
+        default="com.mycompany.myapp"
+        id="packageName"
+        type="string"/>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>
