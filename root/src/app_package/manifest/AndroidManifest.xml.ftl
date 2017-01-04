@@ -2,7 +2,7 @@
 
     <application>
         <activity
-            android:name="${uiPackage}.${activityClass}"
+            android:name="${uiPackage}.${activityName}"
             <#if isPortrait>
             android:screenOrientation="portrait"
             </#if>>

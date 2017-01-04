@@ -2,15 +2,23 @@ package ${uiPackage};
 
 import com.artemkopan.baseproject.activity.*;
 
-import ${presenterPackage}.${presenterName};
-import ${viewPackage}.${viewName};
+<#if isGeneratePresenter>
+	
+	<#if isContract>
+		import ${contractPackage}.${contractName};
+	<#else>
+		import ${viewPackage}.${viewName};
+		import ${presenterPackage}.${presenterName};
+	</#if>
+
+</#if>
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 //TODO Check your activity class extends
 <#if isGeneratePresenter>
-public class ${activityName} extends BaseActivity<${presenterName}, ${viewName}> implements ${viewName} {
+public class ${activityName} extends BaseActivity<#if isContract><${contractName}.Presenter, ${contractName}.View> implements ${contractName}.View <#else><${presenterName}, ${viewName}> implements ${viewName} </#if> {
 <#else>
 public class ${activityName} extends BaseActivity {
 </#if>
@@ -18,12 +26,17 @@ public class ${activityName} extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        <#if isCreateLayout>
-        setContentView(R.layout.${classToResource(layoutName)});
-        </#if>
-        bindButterKnife();
     }
 
+	@Override
+    public int onInflateLayout() {
+        <#if isCreateLayout>
+        return R.layout.${layoutName};
+		<#else>
+        return ;
+        </#if>
+    }
+	
     @Override
     public void showProgress(@Nullable Object tag) {
 

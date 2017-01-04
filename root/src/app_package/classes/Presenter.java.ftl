@@ -1,10 +1,14 @@
 package ${presenterPackage};
 
 import com.artemkopan.baseproject.presenter.*;
+
+<#if isContract>
+import ${contractPackage}.${contractName};
+<#else>
 import ${viewPackage}.${viewName};
+</#if> 
 
-
-<#if isGeneratePresenterPublic || structure != 'all_in_one'>public</#if> class ${presenterName} extends BasePresenter<${viewName}> {
+<#if isPublicPresenter>public</#if> class ${presenterName} extends BasePresenterImpl<#if isContract><${contractName}.View> implements ${contractName}.Presenter<#else><${viewName}></#if> {
 
 
 }

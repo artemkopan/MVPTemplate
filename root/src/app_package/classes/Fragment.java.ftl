@@ -8,13 +8,23 @@ import com.artemkopan.baseproject.fragment.*;
 
 import android.os.Bundle;
 import android.view.View;
-import ${presenterPackage}.${presenterName};
-import ${viewPackage}.${viewName};
+
+<#if isGeneratePresenter>
+	
+	<#if isContract>
+		import ${contractPackage}.${contractName};
+	<#else>
+		import ${viewPackage}.${viewName};	
+		import ${presenterPackage}.${presenterName};
+	</#if>
+
+</#if>
+
 import android.support.annotation.Nullable;
 
 //TODO Check your fragment class extends
 <#if isGeneratePresenter>
-public class ${fragmentName} extends <#if uiComponent == 'dialog'>BaseDialogFragment<#else>BaseFragment</#if><${presenterName}, ${viewName}> implements ${viewName} {
+public class ${fragmentName} extends <#if uiComponent == 'dialog'>BaseDialogFragment<#else>BaseFragment</#if><#if isContract><${contractName}.Presenter, ${contractName}.View> implements ${contractName}.View <#else><${presenterName}, ${viewName}> implements ${viewName} </#if> {
 <#else>
 public class ${fragmentName} extends <#if uiComponent == 'dialog'>BaseDialogFragment<#else>BaseFragment</#if>{
 </#if>
@@ -24,13 +34,13 @@ public class ${fragmentName} extends <#if uiComponent == 'dialog'>BaseDialogFrag
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-    @Override
-    public int onCreateInflateView() {
+	
+	@Override
+    public int onInflateLayout() {
         <#if isCreateLayout>
         return R.layout.${layoutName};
-        <#else>
-        return 0;
+		<#else>
+        return ;
         </#if>
     }
 
