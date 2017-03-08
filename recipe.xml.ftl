@@ -18,18 +18,18 @@
     <#if isGeneratePresenter>
 
 		<#if isContract>
-			<instantiate from="src/app_package/classes/Contract.java.ftl"
+			<instantiate from="src/app_package/classes/Contract.<#if isKotlin == true>kt<#else>java</#if>.ftl"
 						 to="${pathContract}" />
 			
 			<open file="${pathContract}"/>
 		<#else>
-			<instantiate from="src/app_package/classes/View.java.ftl"
+			<instantiate from="src/app_package/classes/View.<#if isKotlin == true>kt<#else>java</#if>.ftl"
 						 to="${pathView}" />
 
 			<open file="${pathView}"/>
 		</#if>
 		
-        <instantiate from="src/app_package/classes/Presenter.java.ftl"
+        <instantiate from="src/app_package/classes/Presenter.<#if isKotlin == true>kt<#else>java</#if>.ftl"
 					 to="${pathPresenter}" />
 
         <open file="${pathPresenter}"/>

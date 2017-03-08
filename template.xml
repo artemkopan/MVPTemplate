@@ -41,7 +41,14 @@
         id="className"
         type="string"/>
 
-    <parameter
+	<parameter
+		name="Is Kotlin?"
+		default="true"
+		help="If true then was created *.kt files else *.java"
+		id="isKotlin"
+		type="boolean"/>
+		
+	<parameter
         name="Generate Layout"
         default="true"
         help="If true, then in res/layout was created ${layoutName}"
@@ -78,6 +85,7 @@
         default="true"
         help="If true, then was created Presenter and View class"
         id="isGeneratePresenter"
+		visibility="isKotlin == false"
         type="boolean"/>
 
     <parameter

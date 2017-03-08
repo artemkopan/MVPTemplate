@@ -40,28 +40,24 @@ public class ${fragmentName} extends <#if uiComponent == 'dialog'>BaseDialogFrag
         <#if isCreateLayout>
         return R.layout.${layoutName};
 		<#else>
-        return ;
+		//FIXME AutoInflate layout wasn't work with id=0 
+		return 0;
         </#if>
     }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-       super.onViewCreated(view, savedInstanceState);
-    }
-
+	
     @Override
     public void showProgress(@Nullable Object tag) {
-
+        super.showProgress(tag);
     }
 
     @Override
     public void hideProgress(@Nullable Object tag) {
-
+        super.hideProgress(tag);
     }
 
     @Override
     public void showError(@Nullable Object tag, String error) {
-
+        super.showError(tag, error);
     }
 
 }
