@@ -1,9 +1,9 @@
 package ${uiPackage};
 
 <#if uiComponent == 'dialog'>
-import com.artemkopan.baseproject.dialog.*;
+import com.artemkopan.base_mvp.dialog.*;
 <#else>
-import com.artemkopan.baseproject.fragment.*;
+import com.artemkopan.base_mvp.fragment.*;
 </#if>
 
 import android.os.Bundle;

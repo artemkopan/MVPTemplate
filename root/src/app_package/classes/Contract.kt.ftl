@@ -1,5 +1,5 @@
-package ${contractPackage};
-import com.artemkopan.baseproject.presenter.*;
+package ${contractPackage}
+import com.artemkopan.base_mvp.presenter.*
 
 
 interface ${contractName} {

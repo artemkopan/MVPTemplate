@@ -1,8 +1,8 @@
 package ${viewPackage};
 
-import com.artemkopan.baseproject.presenter.*;
+import com.artemkopan.base_mvp.view.BaseView;
 
 
-<#if isPublicPresenter>public</#if> interface ${viewName} extends MvpView {
+<#if isPublicPresenter>public</#if> interface ${viewName} extends BaseView {
 
 }

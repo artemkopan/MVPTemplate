@@ -1,6 +1,6 @@
 package ${uiPackage};
 
-import com.artemkopan.baseproject.activity.*;
+import com.artemkopan.base_mvp.activity.*;
 
 <#if isGeneratePresenter>
 	

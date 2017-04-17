@@ -1,5 +1,5 @@
 package ${contractPackage};
-import com.artemkopan.baseproject.presenter.*;
+import com.artemkopan.base_mvp.presenter.*;
 
 
 <#if isPublicPresenter>public</#if> interface ${contractName} {

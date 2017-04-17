@@ -1,8 +1,6 @@
-package ${viewPackage};
+package ${viewPackage}
 
-import com.artemkopan.baseproject.presenter.*;
+import com.artemkopan.base_mvp.view.BaseView
 
 
-interface ${viewName} : MvpView {
-
-}
+interface ${viewName} : BaseView 
