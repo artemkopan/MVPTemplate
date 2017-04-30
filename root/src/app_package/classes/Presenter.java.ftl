@@ -1,6 +1,6 @@
 package ${presenterPackage};
 
-import com.artemkopan.base_mvp.presenter.BasePresenterImpl;
+import com.artemkopan.mvp.presenter.BasePresenterImpl;
 
 <#if isContract>
 import ${contractPackage}.${contractName};

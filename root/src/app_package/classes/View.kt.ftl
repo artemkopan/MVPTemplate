@@ -1,6 +1,6 @@
 package ${viewPackage}
 
-import com.artemkopan.base_mvp.view.BaseView
+import com.artemkopan.mvp.view.BaseView
 
 
 interface ${viewName} : BaseView 
