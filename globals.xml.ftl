@@ -14,25 +14,32 @@
 	<global id="contractName" value="${className}Contract"/>
 	<global id="activityName" value ="${className}Activity"/>
 
+	<global id="daggerComponentName" value ="${className}Component"/>
+	<global id="daggerModuleName" value ="${className}Module"/>
+	<global id="daggerScopeName" value ="${className}Scope"/>
+
 	
 	<#if structure == 'separated' || structure == 'separated_contract'>
 		<global id="pathView" value = "${escapeXmlAttribute(srcOut)}/view/${className}View.<#if isKotlin == true>kt<#else>java</#if>" />
 		<global id="pathPresenter" value = "${escapeXmlAttribute(srcOut)}/presenter/${className}Presenter.<#if isKotlin == true>kt<#else>java</#if>" />
 		<global id="pathContract" value = "${escapeXmlAttribute(srcOut)}/contract/${className}Contract.<#if isKotlin == true>kt<#else>java</#if>" />
+		<global id="pathDaggerComponent" value = "${escapeXmlAttribute(srcOut)}/di/presentation/${className}Component.<#if isKotlin == true>kt<#else>java</#if>" />
 		<global id="presenterPackage" value = "${packageName}.presenter" />
 		<global id="viewPackage" value = "${packageName}.view" />
 		<global id="contractPackage" value = "${packageName}.contract" />
+		<global id="daggerPackage" value = "${packageName}.di.presentation" />
 	<#else>
 		<global id="pathView" value = "${escapeXmlAttribute(srcOut)}/${className}View.<#if isKotlin == true>kt<#else>java</#if>" />
 		<global id="pathPresenter" value = "${escapeXmlAttribute(srcOut)}/${className}Presenter.<#if isKotlin == true>kt<#else>java</#if>" />
 		<global id="pathContract" value = "${escapeXmlAttribute(srcOut)}/${className}Contract.<#if isKotlin == true>kt<#else>java</#if>" />
+		<global id="pathDaggerComponent" value = "${escapeXmlAttribute(srcOut)}/${className}Component.<#if isKotlin == true>kt<#else>java</#if>" />
 		<global id="presenterPackage" value = "${packageName}" />
 		<global id="viewPackage" value = "${packageName}" />
 		<global id="contractPackage" value = "${packageName}" />
+	    <global id="daggerPackage" value = "${packageName}" />
 	</#if>
 	
-	
-	
+
 	<#if uiComponent == 'activity'>
 		<global id="layoutName" value="activity_${classToResource(className)}"/>
 		<global id="pathUiComponentFrom" value = "src/app_package/classes/Activity.<#if isKotlin == true>kt<#else>java</#if>.ftl" />

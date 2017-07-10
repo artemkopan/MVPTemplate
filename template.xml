@@ -71,7 +71,13 @@
 		visibility="uiComponent == 'activity'"
         type="boolean"/>
 
-	
+    <parameter
+        name="Generate View|Presenter"
+        default="true"
+        help="If true, then was created Presenter and View class"
+        id="isGeneratePresenter"
+        type="boolean"/>
+
     <parameter
         name="Generate View,Presenter public?"
         default="false"
@@ -79,13 +85,12 @@
         id="isGeneratePresenterPublic"
 		visibility="structure == 'all_in_one' || structure == 'all_in_one_contract'"
         type="boolean"/>
-		
+
     <parameter
-        name="Generate View|Presenter"
+        name="Include Dagger Component"
         default="true"
-        help="If true, then was created Presenter and View class"
-        id="isGeneratePresenter"
-		visibility="isKotlin == false"
+        help="If true, then was created DaggerComponent with module and scope"
+        id="includeDaggerComponent"
         type="boolean"/>
 
     <parameter

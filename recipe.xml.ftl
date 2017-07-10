@@ -36,6 +36,13 @@
 
     </#if>
 
+    <#if includeDaggerComponent>
+        <instantiate from="src/app_package/classes/DaggerComponent.<#if isKotlin == true>kt<#else>java</#if>.ftl"
+    					 to="${pathDaggerComponent}" />
+
+        <open file="${pathDaggerComponent}"/>
+    </#if>
+
     <instantiate from="${pathUiComponentFrom}"
 				 to="${pathUiComponentTo}" />
 
