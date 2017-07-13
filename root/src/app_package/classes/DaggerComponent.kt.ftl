@@ -1,22 +1,25 @@
-package ${daggerPackage};
+package ${daggerPackage}
 
-import java.lang.annotation.Retention;
-import javax.inject.Scope;
+import dagger.Module
+import dagger.Provides
+import dagger.Subcomponent
+import javax.inject.Scope
 
-import dagger.Subcomponent;
-import dagger.Module;
-import dagger.Provides;
 
 <#if isContract>
-import ${contractPackage}.${contractName};
+import ${contractPackage}.${contractName}
 </#if>
-import ${presenterPackage}.${presenterName};
+import ${presenterPackage}.${presenterName}
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-@${daggerScopeName}
-@Subcomponent(modules = ${daggerModuleName})
+@${daggerComponentName}.${daggerScopeName}
+@Subcomponent(modules = arrayOf(${daggerComponentName}.${daggerModuleName}::class))
 interface ${daggerComponentName}{
+
+    @Subcomponent.Builder
+    interface Builder {
+        fun module(module: ${daggerModuleName}): Builder
+        fun build(): ${daggerComponentName}
+    }
 
 
     @Module
@@ -25,15 +28,12 @@ interface ${daggerComponentName}{
 
         @${daggerScopeName}
         @Provides
-        public <#if isContract>${contractName}.Presenter<#else>${presenterName}</#if> providePresenter() {
-            return new ${presenterName}();
-        }
+        fun providePresenter() : <#if isContract>${contractName}.Presenter<#else>${presenterName}</#if> = ${presenterName}()
 
     }
 
     @Scope
-    @Retention(RUNTIME)
-    @interface ${daggerScopeName} { }
+    annotation class ${daggerScopeName}
 
 }
 
